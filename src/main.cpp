@@ -88,5 +88,11 @@ int main() {
         }
     }
 
+    double minScore = 0.0;
+    double maxScore = 0.0;
+    findClassExtremes(scores, minScore, maxScore);
+    std::cout << "Lowest: " << minScore << ", Highest: " << maxScore << "\n";
+
+
     return 0;
 }

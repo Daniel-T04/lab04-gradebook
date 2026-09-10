@@ -98,4 +98,21 @@ for (int i = 0; i < STUDENT_COUNT; ++i) {
 }
 
 
+void findClassExtremes(const ScoreGrid& scores,double& lowest, double& highest){
+    lowest = scores[0][0];
+    highest = scores[0][0];
 
+    for (int i = 0; i < STUDENT_COUNT; ++i){
+        for (int j = 0; j < ASSIGNMENT_COUNT; ++j) {
+            if(scores[i][j] < lowest) {
+                lowest = scores[i][j];
+                
+            }
+              if (scores[i][j] > highest) {
+                   highest = scores [i][j];
+              }
+
+        }
+
+    }
+}

@@ -135,3 +135,20 @@ for (int i = 0; i < STUDENT_COUNT; ++i) {
 
    }
 }
+
+
+
+int topStudent (const ScoreGrid& scores) {
+    int bestStudentIndex = 0;
+    double highestAvg = studentAverage(scores, 0);
+
+    for (int i = 1; i < STUDENT_COUNT; ++i) {
+        double currentAvg = studentAverage(scores, i);
+        if (currentAvg > highestAvg) {
+            highestAvg = currentAvg;
+            bestStudentIndex = i;
+        }
+      }
+return bestStudentIndex;
+
+}

@@ -94,5 +94,10 @@ int main() {
     std::cout << "Lowest: " << minScore << ", Highest: " << maxScore << "\n";
 
 
+int topIndex = topStudent(scores);
+std::cout << "Top student row index: " << topIndex << "\n";
+
+
+
     return 0;
 }

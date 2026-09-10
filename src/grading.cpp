@@ -87,3 +87,15 @@ bool isAtRisk(const ScoreGrid& scores, int studentIndex) {
 
     return false;
 }
+
+int countAtRisk(const ScoreGrid& scores) {
+int count = 0;
+
+for (int i = 0; i < STUDENT_COUNT; ++i) {
+        ++count;
+    }
+    return count;
+}
+
+
+

@@ -116,3 +116,22 @@ void findClassExtremes(const ScoreGrid& scores,double& lowest, double& highest){
 
     }
 }
+
+
+
+void applyCurve (ScoreGrid& scores, double points) {
+    if (points <= 0.0) {
+    return;
+}
+
+for (int i = 0; i < STUDENT_COUNT; ++i) {
+    for (int j = 0; j < STUDENT_COUNT; ++j){
+    scores[i][j] += points;
+    if (scores[i][j] > 100.0) {
+        scores[i][j] = 100.0;
+
+        }
+     }
+
+   }
+}

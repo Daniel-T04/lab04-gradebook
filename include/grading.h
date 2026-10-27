@@ -2,6 +2,8 @@
 #ifndef GRADING_H
 #define GRADING_H
 
+#include <vector>
+#include <utility>
 #include "constants.h"
 
 /**
@@ -40,7 +42,7 @@
  */
 [[nodiscard]] double classAverage(const ScoreGrid& scores);
 
-/**
+/*
  * @brief Finds one student's lowest and highest assignment scores.
  *
  * @pre studentIndex is in the range [0, STUDENT_COUNT).
@@ -96,4 +98,56 @@ void findExtremes(const ScoreGrid& scores, int studentIndex,
  */
 [[nodiscard]] bool isAtRisk(const ScoreGrid& scores, int studentIndex);
 
+
+ /** @brief  Counts the total of students in the class who are acadmically at risk
+* @pre None
+* @Post The score grid is not modified.
+ *
+* @param[in] scores the grade grid.
+* @return hte total count of students for whom is ATRisk returns true.
+ */
+ [[nodiscard]] int countAtRisk(const ScoreGrid& scores);
+ 
+ /** @brief finds the higest and lowest  and highest indidivual scores earned acrossed all studewnts and assignments.
+ *
+ * @pre None
+ * @Post lowest holds teh minimum score across teh entire grid .
+ *@Post highest holfs the maximum score accoress the entire grid.
+ * @post the scores grid is not modified.
+
+ *@param[in] scores the grade grid.
+ *@param[out] lowest score  receiveis the overall minimum score.
+ *@param[out] highest score  recieved teh overall maxmum score.
+ */ 
+ void findClassExtremes (const ScoreGrid& scores, double& lowest, double& highest);
+
+/**
+* @brief Applies a curve by adding points to all student scores, capping maximum scores at 100.0
+*
+* @pre STUDENT_COUNT < 0 
+* @Post  The scores grid is not modified.
+*
+*@param[in, out] scores the grade grid to modify.  
+*@param[in] points  Points to add to everyoe score.
+*@pre points > = 0.0.
+*@post Every score increases by points, capped at teh maximum value of 100.0
+*/
+
+void applyCurve(ScoreGrid& scores, double points);
+
+/**
+* @brief Identidies teh student row index with the highest overall average.
+*
+*@ pre  STUDENT_COUNT > 0 
+*@ POST The  score grid is not modified.
+*
+*@param[in] scores the grade grid.
+*@returns row index in tange [1,STUDENT_COUNT] corresponding to the top top student
+*/
+[[nodiscard]] int topStudent(const ScoreGrid& scores);
+
+
+
+
 #endif
+
